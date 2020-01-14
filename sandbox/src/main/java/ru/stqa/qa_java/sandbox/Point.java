@@ -1,27 +1,28 @@
 package ru.stqa.qa_java.sandbox;
 
-public class Point{
+public class Point {
 
-    public static double x1, y1, x2, y2;
+    public double x1;
+    public double y1;
 
-    public static void main (String[] args) {
-        Point p1 = new Point();
-        Point p2 = new Point();
+    public Point() {
+        this.x1 = 0;
+        this.y1 = 0;
+    }
 
-        p1.x1 = -4;
-        p1.y1 = 10;
-        p2.x2 = 0;
-        p2.y2 = 13;
+    public Point(double x1, double y1) {
+        this.x1 = x1;
+        this.y1 = y1;
+    }
 
-        System.out.println("Расстояние между точками (" + p1.toString() + ") и (" + p2.toString1() + ") = " + distance(p1,p2));
+
+    public static double distance(Point p1, Point p2) {
+
+        double d = Math.round(Math.sqrt((p2.x1 - p1.x1) * (p2.x1 - p1.x1) + (p2.y1 - p1.y1) * (p2.y1 - p1.y1)));
+        return d;
 
     }
 
-    public static double distance(Point p1, Point p2){
-
-        return Math.sqrt((p2.x2 - p1.x1) * (p2.x2 - p1.x1) + (p2.y2 - p1.y1)*(p2.y2 - p1.y1));
-
-    }
 
     @Override
     public String toString() {
@@ -31,9 +32,4 @@ public class Point{
     }
 
 
-    public String toString1() {
-
-        return this.x2 + ";" + this.y2;
-
-    }
 }
