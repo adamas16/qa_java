@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ru.stqa.pft.addressbook.tests.GroupDeletionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-21T13:37:07" hostname="PC" time="0.829">
+<testsuite name="ru.stqa.pft.addressbook.tests.GroupDeletionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-22T05:45:39" hostname="PC" time="0.826">
   <properties/>
-  <testcase name="testGroupDeletion" classname="ru.stqa.pft.addressbook.tests.GroupDeletionTest" time="0.829"/>
+  <testcase name="testGroupDeletion" classname="ru.stqa.pft.addressbook.tests.GroupDeletionTest" time="0.826"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}) on port 13612
+  <system-err><![CDATA[Starting ChromeDriver 78.0.3904.70 (edb9c9f3de0247fd912a77b7f6cae7447f6d3ad5-refs/branch-heads/3904@{#800}) on port 21790
 Only local connections are allowed.
 Please protect ports used by ChromeDriver and related test frameworks to prevent access by malicious code.
-[1579613823.066][WARNING]: This version of ChromeDriver has not been tested with Chrome version 79.
-[1579613825.069][WARNING]: Timed out connecting to Chrome, retrying...
-янв 21, 2020 4:37:07 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+[1579671935.078][WARNING]: This version of ChromeDriver has not been tested with Chrome version 79.
+[1579671937.080][WARNING]: Timed out connecting to Chrome, retrying...
+янв 22, 2020 8:45:39 AM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>

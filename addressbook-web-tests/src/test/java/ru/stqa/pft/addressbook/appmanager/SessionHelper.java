@@ -9,8 +9,10 @@ public class SessionHelper extends HelperBase{
         super(driver);
     }
 
+    public static String UrlAddress = "https://localhost/addressbook";
 
     public static void autoLogin(String login, String password) {
+        driver.get(UrlAddress);
         type(By.name("user"),login);
         type(By.name("pass"), password);
         click(By.xpath("//input[@value='Login']"));

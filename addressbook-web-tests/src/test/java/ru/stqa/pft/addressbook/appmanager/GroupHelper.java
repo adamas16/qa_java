@@ -7,7 +7,7 @@ import ru.stqa.pft.addressbook.model.GlobalVars;
 import ru.stqa.pft.addressbook.model.GlobalVars1;
 
 public class GroupHelper extends HelperBase{
-    public static String UrlAddress = "https://localhost/addressbook";
+
 
     public GroupHelper(WebDriver driver) {
         super(driver);
