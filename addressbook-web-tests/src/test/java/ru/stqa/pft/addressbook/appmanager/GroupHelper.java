@@ -2,7 +2,6 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import ru.stqa.pft.addressbook.model.GlobalVars;
 import ru.stqa.pft.addressbook.model.GlobalVars1;
 
@@ -15,12 +14,10 @@ public class GroupHelper extends HelperBase{
 
     public static void fillContactForm(GlobalVars1 globalVars1) {
         type(By.name("firstname"), globalVars1.getName());
-        driver.findElement(By.name("middlename")).clear();
-        driver.findElement(By.name("middlename")).sendKeys(globalVars1.getPatronymic());
+        type(By.name("middlename"), globalVars1.getPatronymic());
         type(By.name("lastname"), globalVars1.getSurname());
         type(By.name("nickname"), globalVars1.getNickname());
-        driver.findElement(By.name("title")).clear();
-        driver.findElement(By.name("title")).sendKeys(globalVars1.getTitle());
+        type(By.name("title"),globalVars1.getTitle());
         type(By.name("company"), globalVars1.getCompany());
         type(By.name("address"), globalVars1.getAddress());
         type(By.name("home"), globalVars1.getHome());
@@ -31,31 +28,54 @@ public class GroupHelper extends HelperBase{
         type(By.name("email2"), globalVars1.getMail2());
         type(By.name("email3"), globalVars1.getMail3());
         type(By.name("homepage"), globalVars1.getHomepage());
-        click(By.name("bday"));
-        new Select(driver.findElement(By.name("bday"))).selectByVisibleText(globalVars1.getbDay());
-        click(By.name("bmonth"));
-        new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(globalVars1.getbMonth());
-        click(By.name("bmonth"));
+        clickWithVisibility(By.name("bday"),globalVars1.getbDay());
+        clickWithVisibility(By.name("bmonth"),globalVars1.getbMonth());
         type(By.name("byear"), globalVars1.getbYear());
-        click(By.name("aday"));
-        new Select(driver.findElement(By.name("aday"))).selectByVisibleText(globalVars1.getaDay());
+        clickWithVisibility(By.name("aday"),globalVars1.getaDay());
         click(By.name("amonth"));
-        new Select(driver.findElement(By.name("amonth"))).selectByVisibleText(globalVars1.getaMonth());
-        click(By.name("amonth"));
+        clickWithVisibility(By.name("amonth"),globalVars1.getaMonth());
         type(By.name("ayear"), globalVars1.getaYear());
-        click(By.name("new_group"));
-        new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(globalVars1.getGroupContact());
-        click(By.name("new_group"));
+        checkGroupListInContactModificationForm(globalVars1, "списка группы", "//select[@name=\"new_group\"]");
         type(By.name("address2"), globalVars1.getAddress2());
         type(By.name("phone2"), globalVars1.getPhone2());
         type(By.name("notes"), globalVars1.getNotes());
+        timeout(5);
     }
 
-    public static void selectGroup() {
-        click(By.name("selected[]"));
+    public static void checkGroupListInContactModificationForm(GlobalVars1 globalVars1, String nameElement, String locator) {
+        try
+        {
+            if(driver.findElement(By.xpath(locator)).isDisplayed() )
+            {
+                clickWithVisibility(By.xpath(locator), globalVars1.getGroupContact());
+                click(By.xpath(locator));
+            }
+        }
+        catch(Exception e)
+        {
+            System.out.println("Элемент " + nameElement + " не отображен");
+        }
     }
 
-    public static void deleteGroupPage() {
+
+    public static void selectGroup(String groupName,String groupXPAth) {
+
+        if (groupName == "" && groupXPAth.length()>0 ){
+            click(By.xpath(groupXPAth));
+        }
+        else if(groupName.length()>0 && groupXPAth == "") {
+            click(By.name(groupName));
+        }else{
+        System.out.println("Выбери либо xpath, либо name");
+        driver.quit();
+            }
+    }
+
+    public static void updateForm(){
+        click(By.xpath("//input[@name=\"update\"]"));
+    }
+
+    public static void deleteGroup() {
         click(By.name("delete"));
     }
 
@@ -84,4 +104,9 @@ public class GroupHelper extends HelperBase{
     public static void submitContactCreation() {
         click(By.xpath("(//input[@name='submit'])[2]"));
     }
+
+    public static void initGroupModification() {
+        click(By.name("edit"));
+    }
+
 }

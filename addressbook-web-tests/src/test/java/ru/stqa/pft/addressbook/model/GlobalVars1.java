@@ -55,6 +55,10 @@ public class GlobalVars1 {
         this.notes = notes;
     }
 
+    public GlobalVars1() {
+        this.groupContact = groupContact;
+    }
+
     public String getName() {
         return name;
     }

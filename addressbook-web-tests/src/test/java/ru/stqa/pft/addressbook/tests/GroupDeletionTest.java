@@ -10,8 +10,8 @@ public class GroupDeletionTest extends TestBase{
     public static void testGroupDeletion(){
         SessionHelper.autoLogin("admin", "secret");
         NavigationHelper.gotoGroupPage();
-        GroupHelper.selectGroup();
-        GroupHelper.deleteGroupPage();
+        GroupHelper.selectGroup("","//input[@title='Select (test1_edited)']"); // groupName = "selected[]", groupXpath"//input[@title='Select (test1)']"
+        GroupHelper.deleteGroup();
         NavigationHelper.gotoGroupPage();
         SessionHelper.logout();
 
